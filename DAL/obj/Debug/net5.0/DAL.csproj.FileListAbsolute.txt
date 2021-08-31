@@ -1,0 +1,15 @@
+C:\Users\ASUS\Desktop\Project\DAL\bin\Debug\net5.0\DAL.deps.json
+C:\Users\ASUS\Desktop\Project\DAL\bin\Debug\net5.0\DAL.dll
+C:\Users\ASUS\Desktop\Project\DAL\bin\Debug\net5.0\ref\DAL.dll
+C:\Users\ASUS\Desktop\Project\DAL\bin\Debug\net5.0\DAL.pdb
+C:\Users\ASUS\Desktop\Project\DAL\bin\Debug\net5.0\Persistence.dll
+C:\Users\ASUS\Desktop\Project\DAL\bin\Debug\net5.0\Persistence.pdb
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.csproj.CopyComplete
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.dll
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\ref\DAL.dll
+C:\Users\ASUS\Desktop\Project\DAL\obj\Debug\net5.0\DAL.pdb
