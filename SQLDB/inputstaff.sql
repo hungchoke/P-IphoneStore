@@ -1,0 +1,2 @@
+INSERT INTO staffs VALUES (1, 'NGUYỄN DUY HOÀNG','hn685235@gmail.com',0318833380,'hn685235','Ue2UzL','SALE');
+INSERT INTO staffs VALUES (2, 'NGUYỄN TẤN HƯNG','deazergm@gmail.com',0397279079,'ht1388','Gg8759','ACCOUNTANT');
