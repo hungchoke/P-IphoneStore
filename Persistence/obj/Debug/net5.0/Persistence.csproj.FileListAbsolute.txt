@@ -10,3 +10,15 @@ C:\Users\ASUS\Desktop\Project\Persistence\obj\Debug\net5.0\Persistence.csproj.Co
 C:\Users\ASUS\Desktop\Project\Persistence\obj\Debug\net5.0\Persistence.dll
 C:\Users\ASUS\Desktop\Project\Persistence\obj\Debug\net5.0\ref\Persistence.dll
 C:\Users\ASUS\Desktop\Project\Persistence\obj\Debug\net5.0\Persistence.pdb
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\bin\Debug\net5.0\Persistence.deps.json
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\bin\Debug\net5.0\Persistence.dll
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\bin\Debug\net5.0\ref\Persistence.dll
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\bin\Debug\net5.0\Persistence.pdb
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.dll
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\ref\Persistence.dll
+C:\Users\ASUS\Desktop\New Folder\Project\Persistence\obj\Debug\net5.0\Persistence.pdb
