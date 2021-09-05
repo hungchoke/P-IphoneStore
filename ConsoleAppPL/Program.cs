@@ -4,10 +4,13 @@ using BL;
 
 namespace ConsoleAppPL
 {
+    
     class Program
     {
         static void Main(string[] args)
         {
+            SaleUI sui = new SaleUI();
+
             Console.Write("User Name: ");
             string userName = Console.ReadLine();
             Console.Write("Password: ");
@@ -20,7 +23,7 @@ namespace ConsoleAppPL
             if(login <= 0){
                 Console.WriteLine("Can't Login");
             }else{
-                Console.WriteLine("Wellcome to Iphone System!");
+                sui.DisplaySaleMenu();
             }
         }
         
