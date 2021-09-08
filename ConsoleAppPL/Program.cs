@@ -23,6 +23,7 @@ namespace ConsoleAppPL
             if(login <= 0){
                 Console.WriteLine("Can't Login");
             }else{
+                Console.WriteLine("Login Success!!");
                 sui.DisplaySaleMenu();
             }
         }

@@ -9,7 +9,7 @@ namespace ConsoleAppPL
             int choice;
             while (true)
             {
-                Console.WriteLine("Iphone Store");
+                Console.WriteLine("Sale Menu");
                 Console.WriteLine("============");
                 Console.WriteLine("1. Show Iphone");
                 Console.WriteLine("2. Order");
