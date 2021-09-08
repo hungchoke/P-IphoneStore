@@ -7,7 +7,8 @@ namespace BL
     public class StaffBL
     {
         private StaffDAL dal = new StaffDAL();
-        public int Login(Staff staff){
+        public Staff Login(Staff staff){
+            
             return dal.Login(staff);
         }
     }
