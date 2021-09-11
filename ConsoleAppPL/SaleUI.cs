@@ -28,7 +28,7 @@ namespace ConsoleAppPL
                         break;
                     case 3:
                         Console.WriteLine("SEE YOU LATER!");
-                        Environment.Exit(0);
+                        Program.Login();
                         break;
                     default:
                         Console.WriteLine("Please choose again(1 - 3)");
