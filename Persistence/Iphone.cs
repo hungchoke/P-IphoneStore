@@ -19,5 +19,18 @@ namespace Persistence
         public string IphoneSupport {set; get;}
         public double IphonePrice {set; get;}
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Iphone)
+            {
+                return ((Iphone)obj).IphoneID.Equals(IphoneID);
+            }
+            return false;    
+        }
+
+        public override int GetHashCode()
+        {
+            return IphoneID.GetHashCode();
+        }
     }
 }

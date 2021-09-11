@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\New Folder\\Project\\Persistence\\Persistence.csproj": {}
+    "C:\\Users\\ASUS\\Desktop\\New Folder - Copy\\Project\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\New Folder\\Project\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\New Folder - Copy\\Project\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\New Folder\\Project\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\New Folder - Copy\\Project\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\New Folder\\Project\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\New Folder - Copy\\Project\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\New Folder\\Project\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\New Folder - Copy\\Project\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
