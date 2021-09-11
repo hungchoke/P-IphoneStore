@@ -14,7 +14,7 @@ namespace ConsoleAppPL
                 SaleUI sui = new SaleUI();
                 AccountantUI aui = new AccountantUI();
                 Console.WriteLine("=================================");
-                Console.WriteLine("|-------------LOGIN-------------|");
+                Console.WriteLine("|---------IPHONE STORE----------|");
                 Console.WriteLine("=================================");
 
                 Console.Write("User Name: ");
