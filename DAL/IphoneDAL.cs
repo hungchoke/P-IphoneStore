@@ -13,7 +13,7 @@ namespace DAL
     public class IphoneDAL
     {
         private string query;
-        private MySqlConnection connection = DbHelper.GetConnection();
+        private MySqlConnection connection = DBConfiguration.GetConnection();
 
         public Iphone GetIphoneById(int iphoneId)
         {
@@ -40,7 +40,7 @@ namespace DAL
             Iphone iphone = new Iphone();
             iphone.IphoneID = reader.GetInt32("iphone_id");
             iphone.IphoneName = reader.GetString("iphone_name");
-            iphone.IphoneColor = reader.GetString("iphone_color");
+            iphone.IphoneColor = reader.GetInt32("color_id");
             iphone.IphoneMemory = reader.GetString("iphone_memory");
             iphone.IphoneStorage = reader.GetString("iphone_storage");
             iphone.IphonePrice = reader.GetDouble("iphone_price");
@@ -56,12 +56,12 @@ namespace DAL
                 switch(iphoneFilter)
                 {
                     case IphoneFilter.GET_ALL:
-                        query = @"select iphone_id,iphone_name,iphone_color,iphone_memory,iphone_storage,iphone_price from Iphones";
+                        query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price from Iphones";
                         break;
                     case IphoneFilter.FILTER_BY_ITEM_COLOR:
-                        query = @"select iphone_id,iphone_name,iphone_color,iphone_memory,iphone_storage,iphone_price from Iphones
-                                            where item_color like concat('%',@iphoneName,'%');";  
-                        command.Parameters.AddWithValue("@iphoneName",iphone.IphoneName);
+                        query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price from Iphones
+                                            where color_id like concat('%',@iphoneColor,'%');";  
+                        command.Parameters.AddWithValue("@iphoneColor",iphone.IphoneColor);
                         break;                      
                 }
                 command.CommandText = query;

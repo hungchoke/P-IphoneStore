@@ -1,4 +1,7 @@
 using System;
+using Persistence;
+using BL;
+using System.Collections.Generic;
 
 namespace ConsoleAppPL
 {
@@ -27,8 +30,7 @@ namespace ConsoleAppPL
                         Console.WriteLine("Sorry, this function is not build yet!");
                         break;
                     case 3:
-                        Console.WriteLine("SEE YOU LATER!");
-                        Program.Login();
+                        Program.LoginMenu();
                         break;
                     default:
                         Console.WriteLine("Please choose again(1 - 3)");
@@ -38,12 +40,18 @@ namespace ConsoleAppPL
         }
         public void ShowIphone()
         {
+            IphoneBL ibl = new IphoneBL();
+            List<Iphone> lst;
+            Iphone ip = new Iphone();
             int choice;
             while(true)
             {
+                
                 Console.WriteLine("=================================");
                 Console.WriteLine("|-----------SALE MENU-----------|");
                 Console.WriteLine("=================================");
+                lst = ibl.GetAll();
+                Console.WriteLine("\nIphone count: "+lst.Count);
                 Console.WriteLine("|1. View iphone infomation      |");
                 Console.WriteLine("|2. Add new product             |");
                 Console.WriteLine("|3. Back to Main menu           |");

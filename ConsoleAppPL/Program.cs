@@ -10,7 +10,7 @@ namespace ConsoleAppPL
     {
         static void Main(string[] args)
         {
-            Login();
+            LoginMenu();
             // try
             // {
             //     SaleUI sui = new SaleUI();
@@ -60,6 +60,7 @@ namespace ConsoleAppPL
             // }
         }
 
+        
         public static string InputUserName()
         {
             StaffBL sbl = new StaffBL();
@@ -80,7 +81,59 @@ namespace ConsoleAppPL
 
             return userName;
         }
+        public static string InputPassWord()
+        {
+            
+            StaffBL sbl = new StaffBL();
+            string ErrorMessage;
+            string passWord;
+            do
+            {
+                Console.Write("\nPassword: ");
+                passWord = GetPassword();
+                sbl.ValidatePassWord(passWord, out ErrorMessage);
 
+                if (ErrorMessage != null)
+                {
+                    Console.WriteLine(ErrorMessage);
+                }
+            }
+            while (sbl.ValidatePassWord(passWord, out ErrorMessage) == false);
+
+            return passWord;
+        }
+
+        public static void LoginMenu()
+        {
+            try
+            {
+                int choice;
+                Console.WriteLine("=================================");
+                Console.WriteLine("|-------------LOGIN-------------|");
+                Console.WriteLine("=================================");
+                Console.WriteLine("|1.Login                        |");
+                Console.WriteLine("|2.Exit                         |");
+                Console.WriteLine("=================================");
+                Console.Write("Your choice: ");
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch(choice)
+                {
+                    case 1:
+                        Login();
+                        break;
+                    case 2:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Please choose again(1 - 2)");
+                        break;        
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
         public static void Login()
         {
             try
@@ -92,18 +145,11 @@ namespace ConsoleAppPL
                 Console.WriteLine("=================================");
 
                 string userName = InputUserName();
-                Console.Write("Password: ");
-                string pass = GetPassword();
-                Console.WriteLine();
+                string pass = InputPassWord();
 
                 Staff staff = new Staff() { UserName = userName, Password = pass };
                 StaffBL bl = new StaffBL();
                 int login = bl.Login(staff).Role;
-                if (pass.Length < 8)
-                {
-                    Console.WriteLine("Password consists of 8 character or more!");
-                }
-
                 if (login <= 0)
                 {
                     Console.WriteLine("Can't Login");

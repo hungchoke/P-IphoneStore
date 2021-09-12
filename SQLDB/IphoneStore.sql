@@ -1,62 +1,63 @@
+DROP DATABASE IF EXISTS iphonestore;
+
 CREATE DATABASE IF NOT EXISTS iphonestore;
 
 USE iphonestore;
 
-DROP TABLE iphones;
+CREATE TABLE colors(
+    color_id INT PRIMARY KEY AUTO_INCREMENT,
+    color_name CHAR(50),
+    color_quantity INT NOT NULL
+);
+create table Staffs(
+	staff_id int auto_increment primary key,
+    staff_name varchar(100) not null,
+    user_name varchar(100) not null unique,
+    user_pass varchar(100) not null,
+    telephone varchar(100),
+    email varchar(100) unique,
+    role int not null default 1
+);
 CREATE TABLE iphones(
-	iphone_id INT PRIMARY KEY,
+	iphone_id INT PRIMARY KEY AUTO_INCREMENT,
     iphone_name CHAR(50),
     iphone_process CHAR(50),
     iphone_memory CHAR(50),
-    iphone_color CHAR(50),
+    color_id INT NOT NULL,
     iphone_storage CHAR(50),
     iphone_camera CHAR(100),
     iphone_battery CHAR(50),
     iphone_screen CHAR(100),
-    iphone_network CHAR(100),
-    iphone_wireless CHAR(100),
+    iphone_wireless_network CHAR(100),
     iphone_waterproof CHAR(100),
     iphone_support CHAR(100),
-    iphone_price DOUBLE
-)
+    iphone_price DOUBLE,
+    FOREIGN KEY (color_id) REFERENCES colors(color_id)
+);
 SELECT * FROM iphones;
 
-DROP TABLE staffs;
-CREATE TABLE staffs(
-	staff_id INT PRIMARY KEY,
-    staff_name CHAR(50),
-    staff_email CHAR(100),
-    staff_phone INT NOT NULL,
-    staff_username CHAR(100),
-    staff_password CHAR(100),
-    staff_role CHAR(20)
-)
-SELECT * FROM staffs;
 
-DROP TABLE customers;
 CREATE TABLE customers(
-	customer_id INT PRIMARY KEY,
+	customer_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_name CHAR(50),
     customer_address CHAR(200),
     customer_email CHAR(100),
     customer_phone CHAR(50)
-)
+);
 SELECT * FROM customers;
 
 
-DROP TABLE invoices;
 CREATE TABLE invoices(
-	invoice_no INT PRIMARY KEY,
+	invoice_no INT PRIMARY KEY AUTO_INCREMENT,
     invoice_data DATETIME,
     invoice_status CHAR(100),
     customer_id INT NOT NULL,
     staff_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
-    FOREIGN KEY (staff_id) REFERENCES staffs(staff_id)
-)
+    FOREIGN KEY (staff_id) REFERENCES Staffs(staff_id)
+);
 SELECT * FROM invoices;
 
-DROP TABLE invoicedetails;
 CREATE TABLE invoicedetails(
 	invoice_no INT NOT NULL,
     iphone_id INT NOT NULL,
@@ -67,13 +68,19 @@ CREATE TABLE invoicedetails(
 )
 SELECT * FROM invoicedetails;
 
-DROP TABLE colors;
-CREATE TABLE colors(
-    color_id INT PRIMARY KEY,
-    color_name CHAR(50),
-    color_quantity INT NOT NULL,
-    iphone_id INT NOT NULL,
-    FOREIGN KEY (iphone_id) REFERENCES iphones(iphone_id)
-)
+
 SELECT * FROM colors;
 
+
+
+
+create user if not exists 'iphonestaff'@'localhost' identified by 'iphonestore';
+grant all on iphonestore.* to 'iphonestaff'@'localhost';
+
+insert into Staffs(staff_name, user_name, user_pass, role) values
+	('Sale','sale','a288c42085685d673b9450d539e06695',1);
+insert into Staffs(staff_name, user_name, user_pass, role) values
+	('Accountant','accountant','dcb7cfc8aa5d2c0774f4ddb1abba7362',2);
+select * from Staffs;
+select * from Staffs where user_name= 'sale' and user_pass ='a288c42085685d673b9450d539e06695';
+select * from Staffs where user_name= 'accountant' and user_pass ='dcb7cfc8aa5d2c0774f4ddb1abba7362';
