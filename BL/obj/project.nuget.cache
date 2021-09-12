@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rAa9l0BZlotySSZUz58Z/zdT35jEBqODLFyhTJEqowUOZO1e2f39epxVHMwGlDw1FG6TfyrwJ1vNg2TgiQjYAg==",
+  "dgSpecHash": "oTLSeONgtN7ueDWtIq1I5Mdz0V2Qp2U+XLXdtp7ool7RJlw4yuv0YC933infEp9/36fgfp2djOBXhgviYC0QHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\New Folder - Copy\\Project\\BL\\BL.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\BL\\BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

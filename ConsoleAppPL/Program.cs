@@ -122,6 +122,8 @@ namespace ConsoleAppPL
                         Login();
                         break;
                     case 2:
+                        Console.WriteLine("Goodbye!");
+                        Thread.Sleep(1000);
                         Environment.Exit(0);
                         break;
                     default:
@@ -153,6 +155,8 @@ namespace ConsoleAppPL
                 if (login <= 0)
                 {
                     Console.WriteLine("Can't Login");
+                    Console.WriteLine("Password is wrong, please login again!");
+                    Login();
                 }
                 else
                 {
@@ -162,12 +166,16 @@ namespace ConsoleAppPL
                         Console.WriteLine("Login Success!!");
                         Thread.Sleep(1000);
                         Console.WriteLine("You are Sale!");
+                        Thread.Sleep(1000);
                         sui.DisplaySaleMenu();
                     }
                     else
                     {
+                        Thread.Sleep(1000);
                         Console.WriteLine("Login Success!!");
+                        Thread.Sleep(1000);
                         Console.WriteLine("You are Accountant!");
+                        Thread.Sleep(1000);
                         aui.DisplayAccountantMenu();
                     }
 
