@@ -27,8 +27,8 @@ namespace ConsoleAppPL
                         Console.WriteLine("Sorry, this function is not build yet!");
                         break;
                     case 3:
-                        Console.WriteLine("SEE YOU LATER!");
-                        Environment.Exit(0);
+                        Program.LoginMenu();
+                        
                         break;
                     default:
                         Console.WriteLine("Please choose again(1 - 3)");
@@ -36,6 +36,7 @@ namespace ConsoleAppPL
                 }
             }
         }
+        
         public void ExportInvoice()
         {
             int choice;

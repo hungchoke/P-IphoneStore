@@ -12,9 +12,9 @@ namespace ConsoleAppPL
             int choice;
             while (true)
             {
-                Console.WriteLine("=================================");
-                Console.WriteLine("|----------SHOW IPHONE----------|");
-                Console.WriteLine("=================================");
+                Console.WriteLine("|===============================|");
+                Console.WriteLine("|-----------SALE MENU-----------|");
+                Console.WriteLine("|===============================|");
                 Console.WriteLine("|1. Show Iphone                 |");
                 Console.WriteLine("|2. Order                       |");
                 Console.WriteLine("|3. Logout                      |");
@@ -30,7 +30,7 @@ namespace ConsoleAppPL
                         Console.WriteLine("Sorry, this function is not build yet!");
                         break;
                     case 3:
-                        Program.LoginMenu();
+                        Program.LoginMenu();                  
                         break;
                     default:
                         Console.WriteLine("Please choose again(1 - 3)");
@@ -40,21 +40,81 @@ namespace ConsoleAppPL
         }
         public void ShowIphone()
         {
-            IphoneBL ibl = new IphoneBL();
-            List<Iphone> lst;
-            Iphone ip = new Iphone();
+            
             int choice;
             while(true)
             {
-                
-                Console.WriteLine("=================================");
-                Console.WriteLine("|-----------SALE MENU-----------|");
-                Console.WriteLine("=================================");
-                lst = ibl.GetAll();
-                Console.WriteLine("\nIphone count: "+lst.Count);
-                Console.WriteLine("|1. View iphone infomation      |");
-                Console.WriteLine("|2. Add new product             |");
+                IphoneBL ibl = new IphoneBL();
+                List<Iphone> lst;
+                Console.WriteLine("|===============================|");
+                Console.WriteLine("|----------SHOW IPHONE----------|");
+                Console.WriteLine("|===============================|");
+                Console.WriteLine("|1. View iphone by id           |");
+                Console.WriteLine("|2. View all iphone             |");
                 Console.WriteLine("|3. Back to Main menu           |");
+                Console.WriteLine("=================================");
+                Console.Write("Your choice: ");
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch(choice)
+                {
+                    case 1:
+                        ViewIphoneById();
+                        break;
+                    case 2:
+                        lst = ibl.GetAll();
+                        break;
+                    case 3:
+                        DisplaySaleMenu();
+                        Console.ReadKey();
+                        break;
+                    default:
+                        Console.WriteLine("Please choose again(1 - 3)");
+                        break;
+                }
+            }    
+        }
+        public void ViewIphoneById()
+        {
+            IphoneBL ibl = new IphoneBL();
+            Console.WriteLine("=============================================");
+            Console.WriteLine("Input iphone id: ");
+            int iphoneId = Convert.ToInt32(Console.ReadLine());
+            Iphone ip = ibl.GetIphoneById(iphoneId);
+            if (iphoneId <=0)
+            {
+                Console.WriteLine("Id does not exist,please re enter!");
+                ViewIphoneById();
+            }
+            else
+            {
+                Console.OutputEncoding = System.Text.Encoding.UTF8;
+                Console.WriteLine("|===========================================|");
+                Console.WriteLine("|-------------IPHONE INFOMATION-------------|");
+                Console.WriteLine("|===========================================|");
+                Console.WriteLine("Name: "+ip.IphoneName);
+                Console.WriteLine("Memory: "+ip.IphoneMemory);
+                Console.WriteLine("Color: "+ip.IphoneColor);
+                Console.WriteLine("Process: "+ip.IphoneProcess);
+                Console.WriteLine("Camera: "+ip.IphoneCamera);
+                Console.WriteLine("Screen: "+ip.IphoneScreen);
+                Console.WriteLine("Storage: "+ip.IphoneStorage);
+                Console.WriteLine("Support: "+ip.IphoneSupport);
+                Console.WriteLine("Battery: "+ip.IphoneBattery);
+                Console.WriteLine("Waterproof: "+ip.IphoneWaterproof);
+                Console.WriteLine("Wireless Network: "+ip.IphoneWirelessNetwork);
+                Console.WriteLine("Price: "+ip.IphonePrice);
+                Console.WriteLine("=============================================");
+            }
+
+            
+            int choice;
+            while (true)
+            {
+                Console.WriteLine("|===============================|");
+                Console.WriteLine("|-------IPHONE INFOMATION-------|");
+                Console.WriteLine("|===============================|");
+                Console.WriteLine("|1. Add product in order        |");
+                Console.WriteLine("|2. Back to Sale menu           |");
                 Console.WriteLine("=================================");
                 Console.Write("Your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -64,16 +124,13 @@ namespace ConsoleAppPL
                         Console.WriteLine("Sorry, this function is not build yet!");
                         break;
                     case 2:
-                        Console.WriteLine("Sorry, this function is not build yet!");
-                        break;
-                    case 3:
                         DisplaySaleMenu();
                         break;
                     default:
-                        Console.WriteLine("Please choose again(1 - 3)");
+                        Console.WriteLine("Please choose again(1 - 2)");
                         break;
                 }
-            }    
+            }
         }
     }
 }

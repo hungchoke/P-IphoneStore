@@ -21,7 +21,7 @@ namespace DAL
             try
             {
                 connection.Open();
-                query = @"select iphone_id,iphone_name,iphone_price from Iphones where iphone_id=@itemId;";
+                query = @"select * from iphones where iphone_id= @iphoneId;";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@iphoneId", iphoneId);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -35,17 +35,27 @@ namespace DAL
             finally{connection.Close();}
             return iphone;
         }
-        private Iphone GetIphone(MySqlDataReader reader)
+
+        public Iphone GetIphone(MySqlDataReader reader)
         {
             Iphone iphone = new Iphone();
             iphone.IphoneID = reader.GetInt32("iphone_id");
             iphone.IphoneName = reader.GetString("iphone_name");
             iphone.IphoneColor = reader.GetInt32("color_id");
+            iphone.IphoneScreen = reader.GetString("iphone_screen");
+            iphone.IphoneProcess = reader.GetString("iphone_process");
+            iphone.IphoneStorage = reader.GetString("iphone_storage");
+            iphone.IphoneCamera = reader.GetString("iphone_camera");
+            iphone.IphoneBattery = reader.GetString("iphone_battery");
+            iphone.IphoneWirelessNetwork = reader.GetString("iphone_wireless_network");
+            iphone.IphoneSupport = reader.GetString("iphone_support");
+            iphone.IphoneWaterproof = reader.GetString("iphone_waterproof");
             iphone.IphoneMemory = reader.GetString("iphone_memory");
             iphone.IphoneStorage = reader.GetString("iphone_storage");
             iphone.IphonePrice = reader.GetDouble("iphone_price");
             return iphone;
         }
+        
         public List<Iphone> GetIphones(int iphoneFilter,Iphone iphone)
         {
             List<Iphone> lst = null;
@@ -56,7 +66,8 @@ namespace DAL
                 switch(iphoneFilter)
                 {
                     case IphoneFilter.GET_ALL:
-                        query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price from Iphones";
+                        query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price,iphone_screen,iphone_process,iphone_camera,iphone_battery,iphone_wireless_network,iphone_support
+                        ,iphone_waterproof,iphone_memory from Iphones";
                         break;
                     case IphoneFilter.FILTER_BY_ITEM_COLOR:
                         query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price from Iphones

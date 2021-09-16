@@ -108,9 +108,9 @@ namespace ConsoleAppPL
             try
             {
                 int choice;
-                Console.WriteLine("=================================");
+                Console.WriteLine("|===============================|");
                 Console.WriteLine("|-------------LOGIN-------------|");
-                Console.WriteLine("=================================");
+                Console.WriteLine("|===============================|");
                 Console.WriteLine("|1.Login                        |");
                 Console.WriteLine("|2.Exit                         |");
                 Console.WriteLine("=================================");
@@ -128,6 +128,7 @@ namespace ConsoleAppPL
                         break;
                     default:
                         Console.WriteLine("Please choose again(1 - 2)");
+                        LoginMenu();
                         break;        
                 }
             }
@@ -142,9 +143,9 @@ namespace ConsoleAppPL
             {
                 SaleUI sui = new SaleUI();
                 AccountantUI aui = new AccountantUI();
-                Console.WriteLine("=================================");
+                Console.WriteLine("|===============================|");
                 Console.WriteLine("|---------IPHONE STORE----------|");
-                Console.WriteLine("=================================");
+                Console.WriteLine("|===============================|");
 
                 string userName = InputUserName();
                 string pass = InputPassWord();
@@ -209,5 +210,10 @@ namespace ConsoleAppPL
             } while (key != ConsoleKey.Enter);
             return pass;
         }
+        public static void ShowAllIphone()
+        {
+            Console.WriteLine("ID\tName\tMemory\tStorage\tColor\tPrice");
+            
+        } 
     }
 }

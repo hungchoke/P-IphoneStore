@@ -8,10 +8,12 @@ namespace BL
     public class StaffBL
     {
         private StaffDAL dal = new StaffDAL();
-        public Staff Login(Staff staff){
+        public Staff Login(Staff staff
+        ){
             
             return dal.Login(staff);
         }
+
 
         public bool ValidateUserName(string userName, out string ErrorMessage)
         {
@@ -70,7 +72,7 @@ namespace BL
        
             if (!hasUpperChar.IsMatch(input) && !hasLowerChar.IsMatch(input))
             {
-                ErrorMessage = "Password must contain at least 1 lowercase character, 1 uppercase character and 1 number!";
+                ErrorMessage = "Password must contain at least 1 lowercase character, 1 uppercase character!";
                 return false;
             }
             else if (!hasMiniMaxChars.IsMatch(input))
