@@ -13,7 +13,8 @@ namespace ConsoleAppPL
             while (true)
             {
                 Console.WriteLine("|===============================|");
-                Console.WriteLine("|-----------SALE MENU-----------|");
+                Console.WriteLine("|         IPHONE STORE          |");
+                Console.WriteLine("|          SALE MENU            |");
                 Console.WriteLine("|===============================|");
                 Console.WriteLine("|1. Show Iphone                 |");
                 Console.WriteLine("|2. Order                       |");
@@ -47,7 +48,8 @@ namespace ConsoleAppPL
                 IphoneBL ibl = new IphoneBL();
                 List<Iphone> lst;
                 Console.WriteLine("|===============================|");
-                Console.WriteLine("|----------SHOW IPHONE----------|");
+                Console.WriteLine("|         IPHONE STORE          |");
+                Console.WriteLine("|          SHOW IPHONE          |");
                 Console.WriteLine("|===============================|");
                 Console.WriteLine("|1. View iphone by id           |");
                 Console.WriteLine("|2. View all iphone             |");
@@ -62,6 +64,7 @@ namespace ConsoleAppPL
                         break;
                     case 2:
                         lst = ibl.GetAll();
+                        Console.ReadLine();
                         break;
                     case 3:
                         DisplaySaleMenu();
@@ -89,7 +92,8 @@ namespace ConsoleAppPL
             {
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
                 Console.WriteLine("|===========================================|");
-                Console.WriteLine("|-------------IPHONE INFOMATION-------------|");
+                Console.WriteLine("|               IPHONE STORE                |");
+                Console.WriteLine("|             IPHONE INFOMATION             |");
                 Console.WriteLine("|===========================================|");
                 Console.WriteLine("Name: "+ip.IphoneName);
                 Console.WriteLine("Memory: "+ip.IphoneMemory);
@@ -111,7 +115,8 @@ namespace ConsoleAppPL
             while (true)
             {
                 Console.WriteLine("|===============================|");
-                Console.WriteLine("|-------IPHONE INFOMATION-------|");
+                Console.WriteLine("|         IPHONE STORE          |");
+                Console.WriteLine("|       IPHONE INFOMATION       |");
                 Console.WriteLine("|===============================|");
                 Console.WriteLine("|1. Add product in order        |");
                 Console.WriteLine("|2. Back to Sale menu           |");
@@ -131,6 +136,29 @@ namespace ConsoleAppPL
                         break;
                 }
             }
+        }
+        public void ViewAllIphone()
+        {
+            IphoneBL ibl = new IphoneBL();
+            Iphone iphone = new Iphone();
+            List<Iphone> IpList = ibl.GetAll();
+            Console.Clear();
+            Console.WriteLine("\nAll Iphone\n");
+            int count = IpList.Count;
+            if(count == 0)
+            {
+                Console.WriteLine("Your store is empty,please input iphone in the database");
+            }
+            else
+            {
+                Console.WriteLine("ID\tName\tMemory\tStorage\tPrice");
+                Console.WriteLine("Name: "+iphone.IphoneName);
+                
+            }
+        }
+        public void ViewIphoneByColor()
+        {
+
         }
     }
 }

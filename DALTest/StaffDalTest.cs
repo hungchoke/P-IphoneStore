@@ -17,11 +17,14 @@ namespace DALTest
         [InlineData("Accountant", "Hoangstaff1", LOGIN_ACCOUNTANT)]
         [InlineData("Sale", "Hungstaff1ea", LOGIN_FAIL)]
         [InlineData("Acaffa", "Hoangstaff1", LOGIN_FAIL)]
+        [InlineData("Accountant", "HoangstaffBH1@", LOGIN_FAIL)]
+        [InlineData("Sale", "", LOGIN_FAIL)]
+        [InlineData("", "Hoangstaff1", LOGIN_FAIL)]
         public void LoginTest(string UsName,string PsWord,int expected)
         {
             Staff staff = new Staff() {UserName = UsName, Password = PsWord};
             int result = sdal.Login(staff).Role;
             Assert.True(result == expected);
         }
-    }
+    }        
 }

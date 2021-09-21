@@ -109,7 +109,8 @@ namespace ConsoleAppPL
             {
                 int choice;
                 Console.WriteLine("|===============================|");
-                Console.WriteLine("|-------------LOGIN-------------|");
+                Console.WriteLine("|         IPHONE STORE          |");
+                Console.WriteLine("|            LOGIN              |");
                 Console.WriteLine("|===============================|");
                 Console.WriteLine("|1.Login                        |");
                 Console.WriteLine("|2.Exit                         |");
@@ -144,7 +145,7 @@ namespace ConsoleAppPL
                 SaleUI sui = new SaleUI();
                 AccountantUI aui = new AccountantUI();
                 Console.WriteLine("|===============================|");
-                Console.WriteLine("|---------IPHONE STORE----------|");
+                Console.WriteLine("|         IPHONE STORE          |");
                 Console.WriteLine("|===============================|");
 
                 string userName = InputUserName();

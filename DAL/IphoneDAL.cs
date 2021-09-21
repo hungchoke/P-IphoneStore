@@ -18,21 +18,24 @@ namespace DAL
         public Iphone GetIphoneById(int iphoneId)
         {
             Iphone iphone = null;
-            try
+            lock (connection)
             {
-                connection.Open();
-                query = @"select * from iphones where iphone_id= @iphoneId;";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@iphoneId", iphoneId);
-                MySqlDataReader reader = command.ExecuteReader();
-                if(reader.Read())
+                try
                 {
-                    iphone = GetIphone(reader);
+                    connection.Open();
+                    query = @"select * from iphones where iphone_id= @iphoneId;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@iphoneId", iphoneId);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if(reader.Read())
+                    {
+                        iphone = GetIphone(reader);
+                    }
+                    reader.Close();
                 }
-                reader.Close();
+                catch { }
+                finally{connection.Close();}
             }
-            catch { }
-            finally{connection.Close();}
             return iphone;
         }
 
@@ -59,40 +62,43 @@ namespace DAL
         public List<Iphone> GetIphones(int iphoneFilter,Iphone iphone)
         {
             List<Iphone> lst = null;
-            try
+            lock (connection)
             {
-                connection.Open();
-                MySqlCommand command = new MySqlCommand("",connection);
-                switch(iphoneFilter)
+                try
                 {
-                    case IphoneFilter.GET_ALL:
-                        query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price,iphone_screen,iphone_process,iphone_camera,iphone_battery,iphone_wireless_network,iphone_support
-                        ,iphone_waterproof,iphone_memory from Iphones";
-                        break;
-                    case IphoneFilter.FILTER_BY_ITEM_COLOR:
-                        query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price from Iphones
-                                            where color_id like concat('%',@iphoneColor,'%');";  
-                        command.Parameters.AddWithValue("@iphoneColor",iphone.IphoneColor);
-                        break;                      
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("",connection);
+                    switch(iphoneFilter)
+                    {
+                        case IphoneFilter.GET_ALL:
+                            query = @"select * from Iphones";
+                            break;
+                        case IphoneFilter.FILTER_BY_ITEM_COLOR:
+                            query = @"select iphone_id,iphone_name,color_id,iphone_memory,iphone_storage,iphone_price from Iphones
+                                                where color_id like concat('%',@iphoneColor,'%');";  
+                            command.Parameters.AddWithValue("@iphoneColor",iphone.IphoneColor);
+                            break; 
+                    }
+                    command.CommandText = query;
+                    MySqlDataReader reader = command.ExecuteReader();
+                    lst = new List<Iphone>();
+                    while (reader.Read())
+                    {
+                        lst.Add(GetIphone(reader));
+                    }
+                    reader.Close();
                 }
-                command.CommandText = query;
-                MySqlDataReader reader = command.ExecuteReader();
-                lst = new List<Iphone>();
-                while (reader.Read())
+                catch(Exception ex)
                 {
-                    lst.Add(GetIphone(reader));
+                    Console.WriteLine(ex);
                 }
-                reader.Close();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            finally
-            {
-                connection.Close();
+                finally
+                {
+                    connection.Close();
+                }
             }
             return lst;
         }
+        
     }
 }

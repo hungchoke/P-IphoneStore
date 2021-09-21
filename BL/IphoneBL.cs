@@ -17,10 +17,10 @@ namespace BL
         {
             return idal.GetIphones(IphoneFilter.GET_ALL,null);
         }
-        
         public List<Iphone> GetByColor(int iphoneColor)
         {
             return idal.GetIphones(IphoneFilter.FILTER_BY_ITEM_COLOR,new Iphone{IphoneColor = iphoneColor});
         }
+        
     }
 }
