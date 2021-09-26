@@ -15,12 +15,25 @@ namespace BL
 
         public List<Iphone> GetAll()
         {
-            return idal.GetIphones(IphoneFilter.GET_ALL,null);
+            return idal.GetAllIphone();
         }
-        public List<Iphone> GetByColor(int iphoneColor)
+        public List<Iphone> GetByName(string iphoneName)
         {
-            return idal.GetIphones(IphoneFilter.FILTER_BY_ITEM_COLOR,new Iphone{IphoneColor = iphoneColor});
+            return idal.GetIphones(IphoneFilter.FILTER_BY_ITEM_NAME, new Iphone{IphoneName = iphoneName});
         }
-        
+        public bool ValidName(string name, out string ErrorMessage)
+        {
+            var input = name;
+            ErrorMessage = string.Empty;
+            if(string.IsNullOrWhiteSpace(input))
+            {
+                ErrorMessage = "Please do not leave the input blank!";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace DALTest
         [InlineData("Accountant", "HoangstaffBH1@", LOGIN_FAIL)]
         [InlineData("Sale", "", LOGIN_FAIL)]
         [InlineData("", "Hoangstaff1", LOGIN_FAIL)]
+        [InlineData("da","dadja32",LOGIN_FAIL)]
         public void LoginTest(string UsName,string PsWord,int expected)
         {
             Staff staff = new Staff() {UserName = UsName, Password = PsWord};
