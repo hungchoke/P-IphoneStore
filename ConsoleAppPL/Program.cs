@@ -211,10 +211,5 @@ namespace ConsoleAppPL
             } while (key != ConsoleKey.Enter);
             return pass;
         }
-        public static void ShowAllIphone()
-        {
-            Console.WriteLine("ID\tName\tMemory\tStorage\tColor\tPrice");
-            
-        } 
     }
 }

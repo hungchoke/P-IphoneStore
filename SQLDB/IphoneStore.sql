@@ -84,3 +84,10 @@ insert into Staffs(staff_name, user_name, user_pass, role) values
 select * from Staffs;
 select * from Staffs where user_name= 'sale' and user_pass ='a288c42085685d673b9450d539e06695';
 select * from Staffs where user_name= 'accountant' and user_pass ='dcb7cfc8aa5d2c0774f4ddb1abba7362';
+
+CREATE PROCEDURE p_createCustomer(IN customer_name varchar(100), IN customer_address VARCHAR(200), IN customer_email varchar(100),IN customer_phone varchar(100), OUT customer_id int)
+BEGIN
+	INSERT INTO Customers(customer_name, customer_address, customer_email,customer_phone) values (customer_name, customer_address, customer_email,customer_phone)
+ 	select max(customer_id) into customer_id from Customers
+END $$
+delimiter ;

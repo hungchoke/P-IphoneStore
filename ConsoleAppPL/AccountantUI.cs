@@ -78,19 +78,19 @@ namespace ConsoleAppPL
         public void AddCustomer()
         {
             
-            // CustomerBL cbl = new CustomerBL();
-            // Console.Write("Name: ");
-            // string cname = Console.ReadLine();
-            // Console.Write("Address: ");
-            // string address = Console.ReadLine();
-            // Console.Write("Email: ");
-            // string email = Console.ReadLine();
-            // Console.Write("Phone: ");
-            // string phone = Console.ReadLine();
-            // Customer customer = new Customer(){CustomerName = cname,CustomerAddress = address,CustomerEmail = email,CustomerPhone = phone};
-            // int? id = cbl.AddCustomer(customer);
-            // Console.WriteLine("Add complete! id:{0}", id);
-            // Console.ReadKey();
+            CustomerBL cbl = new CustomerBL();
+            Console.Write("Name: ");
+            string cname = Console.ReadLine();
+            Console.Write("Address: ");
+            string address = Console.ReadLine();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+            Console.Write("Phone: ");
+            string phone = Console.ReadLine();
+            Customer customer = new Customer(){CustomerName = cname,CustomerAddress = address,CustomerEmail = email,CustomerPhone = phone};
+            int? id = cbl.AddCustomer(customer);
+            Console.WriteLine("Add complete! id:{0}", id);
+            Console.ReadKey();
         }
     }
 }

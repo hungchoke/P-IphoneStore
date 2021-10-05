@@ -150,26 +150,32 @@ namespace ConsoleAppPL
         
         public void ViewIphoneByName()
         {
+            // string name;
+            // IphoneBL ibl = new IphoneBL();
+            // Console.WriteLine("+------------------------------------------------------------------+");
+            // Console.Write("Input iphone name: ");
+            // name = Console.ReadLine();
+            // List<Iphone> lst;
+            // if(name == null)
+            // {
+            //     Console.WriteLine("No result found with {0}",name);
+            // }
+            // else
+            // {
+            //     Console.WriteLine("+---------------------------------------------------------------------------------+");
+            //     Console.WriteLine("|                                  IPHONE STORE                                   |");
+            //     Console.WriteLine("+---------------------------------------------------------------------------------+");
+            //     Console.WriteLine("| ID | Name                 | Color        | Memory     | Storage    | Price      |");
+            //     Console.WriteLine("+---------------------------------------------------------------------------------+");
+            //     lst = ibl.GetByName(name);
+            //     Console.WriteLine("+---------------------------------------------------------------------------------+");
+            // }
             string name;
             IphoneBL ibl = new IphoneBL();
-            Console.WriteLine("+------------------------------------------------------------------+");
+            List<Iphone> lst;
             Console.Write("Input iphone name: ");
             name = Console.ReadLine();
-            List<Iphone> lst;
-            if(name == null)
-            {
-                Console.WriteLine("No result found with {0}",name);
-            }
-            else
-            {
-                Console.WriteLine("+------------------------------------------------------------------+");
-                Console.WriteLine("|                           IPHONE STORE                           |");
-                Console.WriteLine("+------------------------------------------------------------------+");
-                Console.WriteLine("| ID | Name                 | Memory     | Storage    | Price      |");
-                Console.WriteLine("+------------------------------------------------------------------+");
-                lst = ibl.GetByName(name);
-                Console.WriteLine("+------------------------------------------------------------------+");
-            }
+            lst = ibl.GetIphoneByName(name);
         }   
     }
 }

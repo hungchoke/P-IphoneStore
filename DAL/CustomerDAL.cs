@@ -50,23 +50,26 @@ namespace DAL
         }
         public int? AddCustomer(Customer customer)
         {
+            Console.WriteLine("Name: ");
+            string _name = Console.ReadLine();
+            Console.WriteLine("Address: ");
+            string _address = Console.ReadLine();
+            Console.WriteLine("Email: ");
+            string _email = Console.ReadLine();
+            Console.WriteLine("Phone: ");
+            string _phone = Console.ReadLine();
             int? result = null;
             if(connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
             }
-            MySqlCommand command = new MySqlCommand("sp_createCustomer",connection);
+            MySqlCommand command = new MySqlCommand("insert into customers values (@customer_id,@customer_name,@customer_address,customer_email,customer_phone)",connection);
             try
             {
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@customer_name",customer.CustomerName);
-                command.Parameters["@customer_name"].Direction = System.Data.ParameterDirection.Input;
-                command.Parameters.AddWithValue("@customer_address",customer.CustomerAddress);
-                command.Parameters["@customer_address"].Direction = System.Data.ParameterDirection.Input;
-                command.Parameters.AddWithValue("@customer_email",customer.CustomerEmail);
-                command.Parameters["@customer_email"].Direction = System.Data.ParameterDirection.Input;
-                command.Parameters.AddWithValue("@customer_phone",customer.CustomerPhone);
-                command.Parameters["@customer_phone"].Direction = System.Data.ParameterDirection.Input;
+                command.Parameters.AddWithValue("@customer_name",_name);
+                command.Parameters.AddWithValue("@customer_address",_address);
+                command.Parameters.AddWithValue("@customer_email",_email);
+                command.Parameters.AddWithValue("@customer_phone",_phone);
                 command.Parameters.AddWithValue("@customer_id",MySqlDbType.Int32);
                 command.ExecuteNonQuery();
                 result = (int)command.Parameters["@customer_id"].Value;

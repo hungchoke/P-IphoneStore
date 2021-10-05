@@ -17,23 +17,9 @@ namespace BL
         {
             return idal.GetAllIphone();
         }
-        public List<Iphone> GetByName(string iphoneName)
+        public List<Iphone> GetIphoneByName(string iphoneName)
         {
-            return idal.GetIphones(IphoneFilter.FILTER_BY_ITEM_NAME, new Iphone{IphoneName = iphoneName});
-        }
-        public bool ValidName(string name, out string ErrorMessage)
-        {
-            var input = name;
-            ErrorMessage = string.Empty;
-            if(string.IsNullOrWhiteSpace(input))
-            {
-                ErrorMessage = "Please do not leave the input blank!";
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return idal.GetIphoneByName(iphoneName);
         }
     }
 }
