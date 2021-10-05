@@ -8,6 +8,7 @@ CREATE TABLE colors(
     color_id INT PRIMARY KEY AUTO_INCREMENT,
     color_name CHAR(50),
     color_quantity INT NOT NULL
+    
 );
 create table Staffs(
 	staff_id int auto_increment primary key,
@@ -19,14 +20,14 @@ create table Staffs(
     role int not null default 1
 );
 CREATE TABLE iphones(
-	iphone_id INT PRIMARY KEY AUTO_INCREMENT,
-    iphone_name CHAR(50),
-    iphone_process CHAR(50),
-    iphone_memory CHAR(50),
+	iphone_id int auto_increment primary key,
+    iphone_name CHAR(100),
+    iphone_process CHAR(100),
+    iphone_memory CHAR(100),
     color_id INT NOT NULL,
-    iphone_storage CHAR(50),
+    iphone_storage CHAR(100),
     iphone_camera CHAR(100),
-    iphone_battery CHAR(50),
+    iphone_battery CHAR(100),
     iphone_screen CHAR(100),
     iphone_wireless_network CHAR(100),
     iphone_waterproof CHAR(100),
@@ -65,7 +66,7 @@ CREATE TABLE invoicedetails(
     unit_price DOUBLE,
     FOREIGN KEY (invoice_no) REFERENCES invoices(invoice_no),
     FOREIGN KEY (iphone_id) REFERENCES iphones(iphone_id)
-)
+);
 SELECT * FROM invoicedetails;
 
 
@@ -85,9 +86,13 @@ select * from Staffs;
 select * from Staffs where user_name= 'sale' and user_pass ='a288c42085685d673b9450d539e06695';
 select * from Staffs where user_name= 'accountant' and user_pass ='dcb7cfc8aa5d2c0774f4ddb1abba7362';
 
-CREATE PROCEDURE p_createCustomer(IN customer_name varchar(100), IN customer_address VARCHAR(200), IN customer_email varchar(100),IN customer_phone varchar(100), OUT customer_id int)
-BEGIN
-	INSERT INTO Customers(customer_name, customer_address, customer_email,customer_phone) values (customer_name, customer_address, customer_email,customer_phone)
- 	select max(customer_id) into customer_id from Customers
-END $$
+delimiter $$
+create procedure sp_createCustomer(IN customerName varchar(100), IN customerAddress varchar(200),In customerEmail varchar(100),In customerPhone varchar(100), OUT customerId int)
+begin
+    insert into Customers(customer_name, customer_address, customer_email, customer_phone) values (customerName, customerAddress, customerEmail, customerPhone); 
+    select max(customer_id) into customerId from Customers;
+end $$
 delimiter ;
+
+call sp_createCustomer('no name','any where','any email','any number',@cusId);
+select @cusId;

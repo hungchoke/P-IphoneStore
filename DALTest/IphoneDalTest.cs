@@ -27,10 +27,10 @@ namespace DALTest
         [InlineData(10,FOUND)]
         [InlineData(11,FOUND)]
         [InlineData(12,FOUND)]
-        [InlineData(20,FOUND)]
-        [InlineData(21,FOUND)]
-        [InlineData(22,FOUND)]
-        [InlineData(23,FOUND)]
+        [InlineData(13,FOUND)]
+        [InlineData(14,FOUND)]
+        [InlineData(15,FOUND)]
+        [InlineData(16,FOUND)]
         [InlineData(100,NOT_FOUND)]
         private void SearchByIDTest(int id,int expected)
         {
