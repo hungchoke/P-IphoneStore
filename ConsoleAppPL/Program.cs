@@ -108,13 +108,20 @@ namespace ConsoleAppPL
             try
             {
                 int choice;
-                Console.WriteLine("|===============================|");
-                Console.WriteLine("|         IPHONE STORE          |");
-                Console.WriteLine("|            LOGIN              |");
-                Console.WriteLine("|===============================|");
-                Console.WriteLine("|1.Login                        |");
-                Console.WriteLine("|2.Exit                         |");
-                Console.WriteLine("=================================");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                Console.WriteLine("|  ___   _______  __   __  _______  __    _  _______    _______  _______  _______  ______    _______   |");
+                Console.WriteLine("| |   | |       ||  | |  ||       ||  |  | ||       |  |       ||       ||       ||    _ |  |       |  |");
+                Console.WriteLine("| |   | |    _  ||  |_|  ||   _   ||   |_| ||    ___|  |  _____||_     _||   _   ||   | ||  |    ___|  |");
+                Console.WriteLine("| |   | |   |_| ||       ||  | |  ||       ||   |___   | |_____   |   |  |  | |  ||   |_||_ |   |___   |");
+                Console.WriteLine("| |   | |    ___||       ||  |_|  ||  _    ||    ___|  |_____  |  |   |  |  |_|  ||    __  ||    ___|  |");
+                Console.WriteLine("| |   | |   |    |   _   ||       || | |   ||   |___    _____| |  |   |  |       ||   |  | ||   |___   |");
+                Console.WriteLine("| |___| |___|    |__| |__||_______||_|  |__||_______|  |_______|  |___|  |_______||___|  |_||_______|  |");
+                Console.WriteLine("|                                                                                                      |");
+                Console.WriteLine("|                                            SHOW IPHONE                                               |");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                Console.WriteLine("|1.Login                                                                                               |");
+                Console.WriteLine("|2.Exit                                                                                                |");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
                 Console.Write("Your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch(choice)
@@ -144,10 +151,16 @@ namespace ConsoleAppPL
             {
                 SaleUI sui = new SaleUI();
                 AccountantUI aui = new AccountantUI();
-                Console.WriteLine("|===============================|");
-                Console.WriteLine("|         IPHONE STORE          |");
-                Console.WriteLine("|===============================|");
-
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                Console.WriteLine("|  ___   _______  __   __  _______  __    _  _______    _______  _______  _______  ______    _______   |");
+                Console.WriteLine("| |   | |       ||  | |  ||       ||  |  | ||       |  |       ||       ||       ||    _ |  |       |  |");
+                Console.WriteLine("| |   | |    _  ||  |_|  ||   _   ||   |_| ||    ___|  |  _____||_     _||   _   ||   | ||  |    ___|  |");
+                Console.WriteLine("| |   | |   |_| ||       ||  | |  ||       ||   |___   | |_____   |   |  |  | |  ||   |_||_ |   |___   |");
+                Console.WriteLine("| |   | |    ___||       ||  |_|  ||  _    ||    ___|  |_____  |  |   |  |  |_|  ||    __  ||    ___|  |");
+                Console.WriteLine("| |   | |   |    |   _   ||       || | |   ||   |___    _____| |  |   |  |       ||   |  | ||   |___   |");
+                Console.WriteLine("| |___| |___|    |__| |__||_______||_|  |__||_______|  |_______|  |___|  |_______||___|  |_||_______|  |");
+                Console.WriteLine("|                                                                                                      |");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
                 string userName = InputUserName();
                 string pass = InputPassWord();
 

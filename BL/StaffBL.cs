@@ -8,12 +8,14 @@ namespace BL
     public class StaffBL
     {
         private StaffDAL dal = new StaffDAL();
-        public Staff Login(Staff staff
-        ){
-            
+        public Staff Login(Staff staff)
+        {
             return dal.Login(staff);
         }
-
+        public Staff Profile(Staff staff)
+        {
+            return dal.ShowProfile(staff);
+        }
 
         public bool ValidateUserName(string userName, out string ErrorMessage)
         {

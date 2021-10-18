@@ -76,5 +76,41 @@ namespace DAL
         {
             return null;
         }
+        public Staff ShowProfile(Staff staff)
+        {
+            lock(connection)
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("select * from Staffs where user_name= 'sale' and user_pass ='a288c42085685d673b9450d539e06695';",connection);
+                    
+                    MySqlDataReader reader = command.ExecuteReader();
+                    string id = reader["staff_id"].ToString();
+                    string name = reader["staff_name"].ToString();
+                    string phone = reader["telephone"].ToString();
+                    string email = reader["email"].ToString();
+                    string role = reader["role"].ToString();
+                    if (reader.Read())
+                    {
+                        staff.Role = reader.GetInt32("role");
+                    }
+                    else
+                    {
+                        staff.Role = 0;
+                    }
+                    reader.Close();
+                }
+                catch
+                {
+                    staff.Role = -1;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return staff;
+        }
     }
 }

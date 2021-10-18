@@ -889,6 +889,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "BL >= 1.0.0",
+      "DAL >= 1.0.0",
       "Persistence >= 1.0.0"
     ]
   },
@@ -919,6 +920,9 @@
           "projectReferences": {
             "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\BL\\BL.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\BL\\BL.csproj"
+            },
+            "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\DAL\\DAL.csproj"
             },
             "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\Persistence\\Persistence.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\IphoneStore\\Project\\Persistence\\Persistence.csproj"

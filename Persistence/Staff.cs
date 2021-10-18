@@ -14,5 +14,17 @@ namespace Persistence
 
         public static int SALE_ROLE = 1;
         public static int ACCOUNTANCE_ROLE = 2;
+
+        public override bool Equals(object obj){
+            if(obj is Staff)
+            {
+                return ((Staff)obj).StaffID.Equals(StaffID);
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return StaffID.GetHashCode();
+        }
     }
 }

@@ -50,7 +50,6 @@ namespace DAL
         }
         public int? AddCustomer(Customer customer)
         {
-            string _phone = Console.ReadLine();
             int? result = null;
             if(connection.State == System.Data.ConnectionState.Closed)
             {
@@ -82,6 +81,20 @@ namespace DAL
                 connection.Close();
             }
             return result;
+        }
+        public Customer DeleteCustomerByID(int customerid)
+        {
+            Customer customer = null;
+            try
+            {
+                connection.Open();
+                query = @"DELETE FROM customers WHERE customer_id = " + customerid + ";";
+                reader = (new MySqlCommand(query, connection)).ExecuteReader();
+                Console.WriteLine("Delete Complete!");
+                reader.Close();
+            }
+            catch {}
+            return customer;
         }
     }
 }

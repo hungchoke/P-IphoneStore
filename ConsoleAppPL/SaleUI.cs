@@ -14,14 +14,21 @@ namespace ConsoleAppPL
                 int choice;
                 while (true)
                 {
-                    Console.WriteLine("+------------------------------------------------------------------+");
-                    Console.WriteLine("|                           IPHONE STORE                           |");
-                    Console.WriteLine("|                             SALE MENU                            |");
-                    Console.WriteLine("+------------------------------------------------------------------+");
-                    Console.WriteLine("|1. Show Iphone                                                    |");
-                    Console.WriteLine("|2. Order                                                          |");
-                    Console.WriteLine("|3. Logout                                                         |");
-                    Console.WriteLine("+------------------------------------------------------------------+");
+                    Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                    Console.WriteLine("|  ___   _______  __   __  _______  __    _  _______    _______  _______  _______  ______    _______   |");
+                    Console.WriteLine("| |   | |       ||  | |  ||       ||  |  | ||       |  |       ||       ||       ||    _ |  |       |  |");
+                    Console.WriteLine("| |   | |    _  ||  |_|  ||   _   ||   |_| ||    ___|  |  _____||_     _||   _   ||   | ||  |    ___|  |");
+                    Console.WriteLine("| |   | |   |_| ||       ||  | |  ||       ||   |___   | |_____   |   |  |  | |  ||   |_||_ |   |___   |");
+                    Console.WriteLine("| |   | |    ___||       ||  |_|  ||  _    ||    ___|  |_____  |  |   |  |  |_|  ||    __  ||    ___|  |");
+                    Console.WriteLine("| |   | |   |    |   _   ||       || | |   ||   |___    _____| |  |   |  |       ||   |  | ||   |___   |");
+                    Console.WriteLine("| |___| |___|    |__| |__||_______||_|  |__||_______|  |_______|  |___|  |_______||___|  |_||_______|  |");
+                    Console.WriteLine("|                                                                                                      |");
+                    Console.WriteLine("|                                            SALE MENU                                                 |");
+                    Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                    Console.WriteLine("|1. Show Iphone                                                                                        |");
+                    Console.WriteLine("|2. Sale Profile                                                                                       |");
+                    Console.WriteLine("|3. Logout                                                                                             |");
+                    Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
                     Console.Write("Your choice: ");
                     choice = Convert.ToInt32(Console.ReadLine());
                     switch(choice)
@@ -30,7 +37,7 @@ namespace ConsoleAppPL
                             ShowIphone();
                             break;
                         case 2:
-                            Console.WriteLine("Sorry, this function is not build yet!");
+                            ShowProfile();
                             break;
                         case 3:
                             Program.LoginMenu();                  
@@ -46,6 +53,27 @@ namespace ConsoleAppPL
                 Console.WriteLine(e.Message);
             }
         }
+        
+        public void ShowProfile()
+        {
+            // Staff staff = new Staff();
+            // StaffBL sbl = new StaffBL();
+            // staff = sbl.Profile(staff);
+            // Console.WriteLine("ID: "+staff.StaffID);
+            // Console.WriteLine("Name: "+ staff.StaffName);
+            // Console.WriteLine("Phone: "+staff.Telephone);
+            // Console.WriteLine("Email: "+staff.Email);
+            // if(staff.Role == 1)
+            // {
+            //     Console.WriteLine("Role: Sale");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Role: Accountant");
+            // }
+            Console.WriteLine("Press any key to back Sale menu!");
+            Console.ReadKey();
+        }
         public void ShowIphone()
         {
             
@@ -54,15 +82,22 @@ namespace ConsoleAppPL
             {
                 IphoneBL ibl = new IphoneBL();
                 List<Iphone> lst;
-                Console.WriteLine("+------------------------------------------------------------------+");
-                Console.WriteLine("|                           IPHONE STORE                           |");
-                Console.WriteLine("|                            SHOW MENU                             |");
-                Console.WriteLine("+------------------------------------------------------------------+");
-                Console.WriteLine("|1. View iphone by id                                              |");
-                Console.WriteLine("|2. View all iphone                                                |");
-                Console.WriteLine("|3. View iphone by name                                            |");
-                Console.WriteLine("|4. Back to Main menu                                              |");
-                Console.WriteLine("+------------------------------------------------------------------+");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                Console.WriteLine("|  ___   _______  __   __  _______  __    _  _______    _______  _______  _______  ______    _______   |");
+                Console.WriteLine("| |   | |       ||  | |  ||       ||  |  | ||       |  |       ||       ||       ||    _ |  |       |  |");
+                Console.WriteLine("| |   | |    _  ||  |_|  ||   _   ||   |_| ||    ___|  |  _____||_     _||   _   ||   | ||  |    ___|  |");
+                Console.WriteLine("| |   | |   |_| ||       ||  | |  ||       ||   |___   | |_____   |   |  |  | |  ||   |_||_ |   |___   |");
+                Console.WriteLine("| |   | |    ___||       ||  |_|  ||  _    ||    ___|  |_____  |  |   |  |  |_|  ||    __  ||    ___|  |");
+                Console.WriteLine("| |   | |   |    |   _   ||       || | |   ||   |___    _____| |  |   |  |       ||   |  | ||   |___   |");
+                Console.WriteLine("| |___| |___|    |__| |__||_______||_|  |__||_______|  |_______|  |___|  |_______||___|  |_||_______|  |");
+                Console.WriteLine("|                                                                                                      |");
+                Console.WriteLine("|                                            SHOW IPHONE                                               |");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
+                Console.WriteLine("|1. View iphone by id                                                                                  |");
+                Console.WriteLine("|2. View all iphone                                                                                    |");
+                Console.WriteLine("|3. View iphone by name                                                                                |");
+                Console.WriteLine("|4. Back to Main menu                                                                                  |");
+                Console.WriteLine("+------------------------------------------------------------------------------------------------------+");
                 Console.Write("Your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch(choice)
@@ -121,8 +156,6 @@ namespace ConsoleAppPL
                 Console.WriteLine("Wireless Network: "+ip.IphoneWirelessNetwork);
                 Console.WriteLine("Price: "+ip.IphonePrice);
             }
-
-            
             int choice;
             while (true)
             {

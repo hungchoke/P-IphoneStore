@@ -23,7 +23,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    query = @"select * from iphones where iphone_id= @iphoneId;";
+                    query = @"select iphone_id,iphone_name,iphone_process,iphone_memory,color_name,iphone_storage,iphone_camera,iphone_battery,iphone_screen,iphone_wireless_network,iphone_waterproof,iphone_support,iphone_price,amount from iphones,colors where iphones.color_id = colors.color_id and iphone_id = @iphoneId order by iphone_id;";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@iphoneId", iphoneId);
                     MySqlDataReader reader = command.ExecuteReader();
@@ -44,7 +44,7 @@ namespace DAL
             Iphone iphone = new Iphone();
             iphone.IphoneID = reader.GetInt32("iphone_id");
             iphone.IphoneName = reader.GetString("iphone_name");
-            iphone.IphoneColor = reader.GetInt32("color_id");
+            iphone.IphoneColor = reader.GetString("color_name");
             iphone.IphoneScreen = reader.GetString("iphone_screen");
             iphone.IphoneProcess = reader.GetString("iphone_process");
             iphone.IphoneStorage = reader.GetString("iphone_storage");
@@ -56,19 +56,20 @@ namespace DAL
             iphone.IphoneMemory = reader.GetString("iphone_memory");
             iphone.IphoneStorage = reader.GetString("iphone_storage");
             iphone.IphonePrice = reader.GetDouble("iphone_price");
+            iphone.Amount = reader.GetInt32("amount");
             return iphone;
         }
-        public Iphone GetMoreIphone(MySqlDataReader reader)
-        {
-            Iphone iphone = new Iphone();
-            iphone.IphoneID = reader.GetInt32("iphone_id");
-            iphone.IphoneName = reader.GetString("iphone_name");
-            iphone.IphoneMemory = reader.GetString("iphone_memory");
-            iphone.IphoneStorage = reader.GetString("iphone_storage");
-            iphone.IphonePrice = reader.GetDouble("iphone_price");
-            Console.WriteLine("| {0,-2} | {1,-20} | {2,-10} | {3,-10} | {4,-10} |",iphone.IphoneID,iphone.IphoneName,iphone.IphoneMemory,iphone.IphoneStorage,iphone.IphonePrice);
-            return iphone;
-        }
+        // public Iphone GetMoreIphone(MySqlDataReader reader)
+        // {
+        //     Iphone iphone = new Iphone();
+        //     iphone.IphoneID = reader.GetInt32("iphone_id");
+        //     iphone.IphoneName = reader.GetString("iphone_name");
+        //     iphone.IphoneMemory = reader.GetString("iphone_memory");
+        //     iphone.IphoneStorage = reader.GetString("iphone_storage");
+        //     iphone.IphonePrice = reader.GetDouble("iphone_price");
+        //     Console.WriteLine("| {0,-2} | {1,-20} | {2,-10} | {3,-10} | {4,-10} |",iphone.IphoneID,iphone.IphoneName,iphone.IphoneMemory,iphone.IphoneStorage,iphone.IphonePrice);
+        //     return iphone;
+        // }
         
         public List<Iphone> GetAllIphone()
         {

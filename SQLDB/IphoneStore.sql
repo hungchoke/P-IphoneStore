@@ -33,6 +33,7 @@ CREATE TABLE iphones(
     iphone_waterproof CHAR(100),
     iphone_support CHAR(100),
     iphone_price DOUBLE,
+    amount INT NOT NULL DEFAULT 0,
     FOREIGN KEY (color_id) REFERENCES colors(color_id)
 );
 SELECT * FROM iphones;
@@ -51,7 +52,7 @@ SELECT * FROM customers;
 CREATE TABLE invoices(
 	invoice_no INT PRIMARY KEY AUTO_INCREMENT,
     invoice_data DATETIME,
-    invoice_status CHAR(100),
+    invoice_status INT,
     customer_id INT NOT NULL,
     staff_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
@@ -94,5 +95,26 @@ begin
 end $$
 delimiter ;
 
+delimiter $$
+create procedure sp_createInvoice(IN customerID INT, IN staffID INT,In datetime DATETIME,In statuss varchar(100), OUT invoiceNo int)
+begin
+    insert into invoices(customer_id, staff_id, invoice_data, invoice_status) values (customerID, staffID, datetime, statuss); 
+    select max(invoice_no) into invoiceNo from invoices;
+end $$
+delimiter ;
+
 call sp_createCustomer('no name','any where','any email','any number',@cusId);
 select @cusId;
+
+select item_id from Items order by item_id desc limit 1;
+
+select customer_id, customer_name,
+    ifnull(customer_address, '') as customer_address
+from Customers where customer_id=1;
+                        
+select order_id from Orders order by order_id desc limit 1;
+
+select LAST_INSERT_ID() as invoice_no;
+select customer_id from Customers order by customer_id desc limit 1;
+
+update Items set amount=10 where iphone_id=3;

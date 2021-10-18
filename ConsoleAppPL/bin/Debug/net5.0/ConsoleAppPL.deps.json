@@ -9,6 +9,7 @@
       "ConsoleAppPL/1.0.0": {
         "dependencies": {
           "BL": "1.0.0",
+          "DAL": "1.0.0",
           "Persistence": "1.0.0"
         },
         "runtime": {
